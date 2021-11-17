@@ -1,7 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import { GlobalStyle } from './styles/bases/globalStyle';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import { GlobalStyle } from './styles/bases/globalStyle'
 import Homepage from './pages/Homepage'
+import EmployeesList from './pages/EmployeesList'
+import { Main } from './styles/pages/homepage'
 
 function App() {
   return (
@@ -9,18 +11,16 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        <main>
-          <section>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              {/* <Route exact path="/employee-list" component={SignIn} />
-              <Route component={NotFound} /> */}
-            </Routes>
-          </section>
-        </main>
+        <Main>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/employees-list" element={<EmployeesList />} />
+          {/* <Route component={NotFound} /> */}
+        </Routes>
+        </Main>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -9,13 +9,15 @@ export const InputWrapper = styled.div`
 `
 export const InputLabel = styled.label`
   font-weight: bold;
-  padding: .5rem 0;
+  padding: .4rem .4rem .4rem 0;
+  color: ${colors.text};
 `
 export const InputStyle = styled.input`
-  padding: 5px;
+  padding: .5rem .35rem;
   border-radius: 0.25rem;
-  border: 2px inset ${colors.secondary};
-  background-color: white;
+  border: 1px inset ${colors.background};
+  font-size: .9rem;
+  height: auto;
   &:hover, &:focus {
     background-color: rgba(188, 140, 242, 0.1);
   }

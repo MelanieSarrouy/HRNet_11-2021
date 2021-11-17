@@ -15,7 +15,7 @@ const Header = () => {
         <StyledLink to="/">
           Create Employee
         </StyledLink>
-        <StyledLink to="/employee-list">
+        <StyledLink to="/employees-list">
           Current Employees
         </StyledLink>
       </NavStyled>

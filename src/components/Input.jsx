@@ -30,7 +30,7 @@ import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input
  * @returns {?JSX}
  */
 
-const Input = ({ forAndId, inputType, direction, value, onChange }) => {
+const Input = ({ forAndId, inputType, direction, value, onChange, required }) => {
 
   return (
     <InputWrapper direction={direction}>
@@ -42,6 +42,7 @@ const Input = ({ forAndId, inputType, direction, value, onChange }) => {
         id={forAndId}
         value={value}
         onChange={onChange}
+        required={required}
       />
     </InputWrapper>
   )

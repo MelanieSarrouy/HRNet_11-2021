@@ -8,6 +8,7 @@ export const Main = styled.main`
   border-bottom: 2px inset #bfc8d3;
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  background-color: ${colors.background}
 `
 export const Form = styled.form`
   display: flex;
@@ -29,7 +30,7 @@ export const DivInputWrapper = styled.div`
     width: 100%;
   }
 `
-export const DivInputWrapperLittle = styled.div`
+export const DivInputDateWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 1rem;
@@ -45,11 +46,25 @@ export const DivInputWrapperLittle = styled.div`
     grid-template-columns: 1fr;
   }
 `
+export const DivInputZipWrapper = styled.div`
+  display: flex;
+  width: 7rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+`
+
 export const FieldsetStyle = styled.fieldset`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
+  border-style: double none double none;
+  border-width: 1px;
+  border-color: black;
+  padding-bottom: 1rem;
 `
 export const DivButton = styled.div`
   display: flex;
@@ -76,10 +91,12 @@ export const InputButton = styled.input`
 
 `
 export const SelectStyle = styled.select`
-  padding: 5px;
+  padding: .5rem .35rem;
   border-radius: 0.25rem;
-  border: 2px inset ${colors.secondary};
+  border: 1px inset ${colors.background};
+  font-size: .9rem;
   background-color: white;
+  height: auto;
   &:hover,
   &:focus {
     background-color: rgba(188, 140, 242, 0.1);
@@ -91,3 +108,8 @@ export const SelectStyle = styled.select`
     width: 100%;
   }
 `
+export const Legend = styled.legend`
+  padding: 1rem 1rem 1rem 0;
+  font-style: italic;
+`
+

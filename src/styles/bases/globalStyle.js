@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
 }
   body {
-    background-color: ${colors.background};
+    background-color: white;
     max-width: 1440px;
     margin: auto;
     padding: 0 7%;

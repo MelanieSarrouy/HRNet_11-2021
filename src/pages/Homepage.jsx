@@ -4,14 +4,15 @@ import departments from '../datas/department'
 import states from '../datas/states'
 import { InputLabel, InputWrapper } from '../styles/components/input'
 import {
-  Main,
   Form,
   DivButton,
   DivInputWrapper,
-  DivInputWrapperLittle,
+  DivInputDateWrapper,
+  DivInputZipWrapper,
   FieldsetStyle,
   InputButton,
   SelectStyle,
+  Legend,
 } from '../styles/pages/homepage'
 
 const Homepage = () => {
@@ -26,66 +27,74 @@ const Homepage = () => {
   const USAStates = states
 
   return (
-    <Main>
+    <>
+      <h2 className="sr-only">Create employee</h2>
       <Form>
         <DivInputWrapper>
-          <Input
+          <Input // First Name
             direction={'column'}
             forAndId={'first-name'}
             inputType={'text'}
             value={firstName}
+            required={true}
+            placeholder={''}
             onChange={(e) => {
               setFirstName(e.target.value)
             }}
           />
-          <Input
+          <Input // Last Name
             direction={'column'}
             forAndId={'last-name'}
             inputType={'text'}
             value={lastName}
+            required={true}
             onChange={(e) => {
               setLastName(e.target.value)
             }}
           />
         </DivInputWrapper>
-        <DivInputWrapperLittle>
-          <Input
+        <DivInputDateWrapper>
+          <Input // Date of Birth
             direction={'column'}
             forAndId={'date-of-birth'}
             inputType={'date'}
             value={dateOfBirth}
+            required={true}
             onChange={(e) => {
               setDateOfBirth(e.target.value)
             }}
           />
-          <Input
+          <Input // Start Date
             direction={'column'}
             forAndId={'start-date'}
             inputType={'date'}
             value={startDate}
+            required={true}
             onChange={(e) => {
               setStartDate(e.target.value)
             }}
           />
-        </DivInputWrapperLittle>
+        </DivInputDateWrapper>
 
         <FieldsetStyle>
-          <legend>Address</legend>
+          <Legend>Address</Legend>
           <DivInputWrapper>
-            <Input
+            <Input // Street
               direction={'column'}
               forAndId={'street'}
               inputType={'text'}
               value={street}
+              required={true}
               onChange={(e) => {
                 setStreet(e.target.value)
               }}
             />
-            <Input
+            <Input // City
               direction={'column'}
               forAndId={'city'}
               inputType={'text'}
               value={city}
+              required={true}
               onChange={(e) => {
                 setCity(e.target.value)
               }}
@@ -105,17 +114,18 @@ const Homepage = () => {
             </SelectStyle>
           </InputWrapper>
 
-          <DivInputWrapperLittle>
-            <Input
+          <DivInputZipWrapper>
+            <Input // Zip Code
               direction={'row'}
               forAndId={'zip-code'}
               inputType={'number'}
               value={zipCode}
+              required={true}
               onChange={(e) => {
                 setZipCode(e.target.value)
               }}
             />
-          </DivInputWrapperLittle>
+          </DivInputZipWrapper>
         </FieldsetStyle>
 
         <InputWrapper direction={'column'}>
@@ -136,7 +146,7 @@ const Homepage = () => {
       </Form>
 
       <div id="confirmation-modale"></div>
-    </Main>
+      </>
   )
 }
 
