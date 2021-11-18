@@ -3,9 +3,9 @@ import colors from '../bases/colors'
 
 export const Main = styled.main`
   padding: 1rem 1.5rem;
-  border-left: 2px inset #bfc8d3;
-  border-right: 2px inset #bfc8d3;
-  border-bottom: 2px inset #bfc8d3;
+  border-left: 1px inset ${colors.textLight};
+  border-right: 1px inset ${colors.textLight};
+  border-bottom: 1px inset ${colors.textLight};
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   background-color: ${colors.background}
@@ -61,9 +61,9 @@ export const FieldsetStyle = styled.fieldset`
   flex-direction: column;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border-style: double none double none;
+  border-style: solid none solid none;
   border-width: 1px;
-  border-color: black;
+  border-color: ${colors.textLight};
   padding-bottom: 1rem;
 `
 export const DivButton = styled.div`
@@ -111,5 +111,7 @@ export const SelectStyle = styled.select`
 export const Legend = styled.legend`
   padding: 1rem 1rem 1rem 0;
   font-style: italic;
+  font-weight: 300;
+  color: ${colors.text};
 `
 

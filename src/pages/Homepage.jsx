@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Input from '../components/Input'
+import Modale from '../components/Modale'
 import departments from '../datas/department'
 import states from '../datas/states'
+import { createNewEmployee } from '../Redux/actions/actionCreateEmployee'
 import { InputLabel, InputWrapper } from '../styles/components/input'
 import {
   Form,
@@ -22,14 +25,44 @@ const Homepage = () => {
   const [startDate, setStartDate] = useState('')
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
+  const [state, setState] = useState('')
   const [zipCode, setZipCode] = useState('')
+  const [department, setDepartment] = useState('')
+
   const departmentSorted = departments.sort()
   const USAStates = states
+
+  const [modaleIsOpen, setModaleIsOpen] = useState(false)
+  const closeModale = () => {
+    setModaleIsOpen(false)
+  }
+
+  const dispatch = useDispatch()
+
+  const employee = useSelector((state) => state.newEmployee.employee)
+  console.log(employee)
+  const newEmployee = {
+    firstName: firstName,
+    lastName: lastName,
+    dateOfBirth: dateOfBirth,
+    startDate: startDate,
+    street: street,
+    city: city,
+    state: state,
+    zipCode: zipCode,
+    department: department,
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(createNewEmployee(newEmployee))
+    setModaleIsOpen(true)
+  }
 
   return (
     <>
       <h2 className="sr-only">Create employee</h2>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <DivInputWrapper>
           <Input // First Name
             direction={'column'}
@@ -103,7 +136,13 @@ const Homepage = () => {
 
           <InputWrapper direction={'column'}>
             <InputLabel htmlFor="state">State</InputLabel>
-            <SelectStyle name="state" id="state">
+            <SelectStyle
+              name="state"
+              id="state"
+              onChange={(e) => {
+                setState(e.target.value)
+              }}
+            >
               {USAStates.map((state, index) => {
                 return (
                   <option key={index} value={state.abbreviation}>
@@ -130,11 +169,17 @@ const Homepage = () => {
 
         <InputWrapper direction={'column'}>
           <InputLabel htmlFor="department">Department</InputLabel>
-          <SelectStyle name="department" id="department">
+          <SelectStyle
+            name="department"
+            id="department"
+            onChange={(e) => {
+              setDepartment(e.target.value)
+            }}
+          >
             {departmentSorted.map((department, index) => {
               return (
-                <option key={index} value={department}>
-                  {department}
+                <option key={index} value={department.name}>
+                  {department.name}
                 </option>
               )
             })}
@@ -145,8 +190,9 @@ const Homepage = () => {
         </DivButton>
       </Form>
 
-      <div id="confirmation-modale"></div>
-      </>
+      {modaleIsOpen && <Modale hideModale={closeModale}/>}
+
+    </>
   )
 }
 

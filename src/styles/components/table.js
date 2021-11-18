@@ -25,7 +25,7 @@ export const TBody = styled.tr`
   }
   & > td {
     vertical-align: middle;
-    font-weight: 100;
+    font-weight: 300;
     padding: .2rem .4rem;
     font-size: 0.9rem;
   }
@@ -35,7 +35,4 @@ export const ThDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
-  ${'' /* & > p {
-    white-space: nowrap;
-  } */}
 `

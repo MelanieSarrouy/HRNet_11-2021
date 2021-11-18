@@ -18,14 +18,14 @@ export const StyledLink = styled(NavLink)`
     background-color: ${colors.secondary};
     border-radius: 0.25rem 0.25rem 0px 0px;
     color: white;
-    border-bottom: 2px inset #bfc8d3;
+    border-bottom: 1px inset ${colors.textLight};
 
     &.active, &.active:hover {
       background-color: ${colors.background};
       color: ${colors.text};
-      border-top: 2px inset #bfc8d3;
-      border-left: 2px inset #bfc8d3;
-      border-right: 2px inset #bfc8d3;
+      border-top: 1px inset ${colors.textLight};
+      border-left: 1px inset ${colors.textLight};
+      border-right: 1px inset ${colors.textLight};
       border-bottom: none;
     }
     &:hover {
