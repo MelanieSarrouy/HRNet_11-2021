@@ -5,7 +5,7 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.direction};
   justify-content: left;
-  margin-bottom: .5rem;
+  padding: .4rem 0;
 `
 export const InputLabel = styled.label`
   font-weight: bold;

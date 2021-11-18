@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import colors from '../styles/bases/colors'
 
-export const SVGDiv = styled.div`
+export const SVGDiv = styled.span`
   display: flex;
   flex-direction: column;
   padding: 0.4rem;
   & svg {
-    height: 0.6rem;
+    height: 0.4rem;
     padding: 0.1rem;
+    cursor: pointer;
+    &:hover {
+      opacity: .5;
+    }
   }
 `
 
