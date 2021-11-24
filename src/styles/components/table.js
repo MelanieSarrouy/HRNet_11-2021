@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const TableContainer = styled.div`
   overflow-x: auto;
 `
@@ -11,7 +10,6 @@ export const TrHead = styled.tr`
   & > th {
     padding: 0.4rem;
     vertical-align: middle;
-
   }
 `
 export const TBodyContainer = styled.tbody`
@@ -26,8 +24,13 @@ export const TBody = styled.tr`
   & > td {
     vertical-align: middle;
     font-weight: 300;
-    padding: .2rem .4rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 0.4rem;
+    line-height: 1.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 5rem;
+    ${'' /* font-size: 0.9rem; */}
   }
 `
 export const ThDiv = styled.div`

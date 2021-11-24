@@ -1,5 +1,12 @@
 import React from 'react'
-import { TableContainer, TableStyle, TBodyContainer, TBody, ThDiv, TrHead } from '../styles/components/table'
+import {
+  TableContainer,
+  TableStyle,
+  TBodyContainer,
+  TBody,
+  ThDiv,
+  TrHead,
+} from '../styles/components/table'
 import SVG from './SVG'
 
 const tableHead = [
@@ -14,7 +21,8 @@ const tableHead = [
   'Zip Code',
 ]
 
-const Table = () => {
+const Table = ({ employees }) => {
+
   return (
     <TableContainer>
       <TableStyle>
@@ -33,50 +41,21 @@ const Table = () => {
           </TrHead>
         </thead>
         <TBodyContainer>
-          <TBody>
-            <td>Calvin</td>
-            <td>Hobbs</td>
-            <td>12/01/2005</td>
-            <td>Sales</td>
-            <td>05/31/1982</td>
-            <td>35 rue de la Corniche</td>
-            <td>Paradis</td>
-            <td>Alabama</td>
-            <td>40058</td>
-          </TBody>
-          <TBody>
-            <td>Calvin</td>
-            <td>Hobbs</td>
-            <td>12/01/2005</td>
-            <td>Engineering</td>
-            <td>05/31/1982</td>
-            <td>35 rue de la Corniche</td>
-            <td>Paradis</td>
-            <td>Alabama</td>
-            <td>40058</td>
-          </TBody>
-          <TBody>
-            <td>Calvin</td>
-            <td>Hobbs</td>
-            <td>12/01/2005</td>
-            <td>Human Resources</td>
-            <td>05/31/1982</td>
-            <td>35 rue de la Corniche</td>
-            <td>Paradis</td>
-            <td>Alabama</td>
-            <td>40058</td>
-          </TBody>
-          <TBody>
-            <td>Calvin</td>
-            <td>Hobbs</td>
-            <td>12/01/2005</td>
-            <td>Marketing</td>
-            <td>05/31/1982</td>
-            <td>35 rue de la Corniche</td>
-            <td>Paradis</td>
-            <td>Alabama</td>
-            <td>40058</td>
-          </TBody>
+          {employees.map((employee, id) => {
+            return (
+              <TBody key={id}>
+                <td>{employee.firstName}</td>
+                <td>{employee.lastName}</td>
+                <td>{employee.dateOfBirth}</td>
+                <td>{employee.department}</td>
+                <td>{employee.startDate}</td>
+                <td>{employee.street}</td>
+                <td>{employee.city}</td>
+                <td>{employee.state}</td>
+                <td>{employee.zipCode}</td>
+              </TBody>
+            )
+          })}
         </TBodyContainer>
       </TableStyle>
     </TableContainer>

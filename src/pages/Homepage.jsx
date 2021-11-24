@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import Input from '../components/Input'
 import Modale from '../components/Modale'
 import departments from '../datas/department'
 import states from '../datas/states'
-import { createNewEmployee } from '../Redux/actions/actionCreateEmployee'
 import { InputLabel, InputWrapper } from '../styles/components/input'
 import {
   Form,
@@ -17,6 +15,9 @@ import {
   SelectStyle,
   Legend,
 } from '../styles/pages/homepage'
+import { addAndGetEmployees } from '../firebase/firebaseServices'
+import { useStore } from 'react-redux'
+
 
 const Homepage = () => {
   const [firstName, setFirstName] = useState('')
@@ -25,38 +26,50 @@ const Homepage = () => {
   const [startDate, setStartDate] = useState('')
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
-  const [state, setState] = useState('')
+  const [state, setState] = useState('AL')
   const [zipCode, setZipCode] = useState('')
-  const [department, setDepartment] = useState('')
+  const [department, setDepartment] = useState('sales')
 
   const departmentSorted = departments.sort()
   const USAStates = states
-
   const [modaleIsOpen, setModaleIsOpen] = useState(false)
+
+  const store = useStore()
+
+
   const closeModale = () => {
     setModaleIsOpen(false)
   }
 
-  const dispatch = useDispatch()
-
-  const employee = useSelector((state) => state.newEmployee.employee)
-  console.log(employee)
-  const newEmployee = {
-    firstName: firstName,
-    lastName: lastName,
-    dateOfBirth: dateOfBirth,
-    startDate: startDate,
-    street: street,
-    city: city,
-    state: state,
-    zipCode: zipCode,
-    department: department,
+  const newEmployee = () => {
+    return {
+      firstName: firstName,
+      lastName: lastName,
+      dateOfBirth: dateOfBirth,
+      startDate: startDate,
+      street: street,
+      city: city,
+      state: state,
+      zipCode: zipCode,
+      department: department,
+    }
   }
-
+  const reset = () => {
+    setFirstName('')
+    setLastName('')
+    setDateOfBirth('')
+    setStartDate('')
+    setStreet('')
+    setCity('')
+    setState('AL')
+    setZipCode('')
+    setDepartment('Sales')
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(createNewEmployee(newEmployee))
+    addAndGetEmployees(store, newEmployee)
     setModaleIsOpen(true)
+    reset()
   }
 
   return (
@@ -139,14 +152,15 @@ const Homepage = () => {
             <SelectStyle
               name="state"
               id="state"
+              value={state}
               onChange={(e) => {
                 setState(e.target.value)
               }}
             >
               {USAStates.map((state, index) => {
                 return (
-                  <option key={index} value={state.abbreviation}>
-                    {state.name}
+                  <option key={index} value={state.value}>
+                    {state.label}
                   </option>
                 )
               })}
@@ -172,14 +186,15 @@ const Homepage = () => {
           <SelectStyle
             name="department"
             id="department"
+            value={department}
             onChange={(e) => {
               setDepartment(e.target.value)
             }}
           >
             {departmentSorted.map((department, index) => {
               return (
-                <option key={index} value={department.name}>
-                  {department.name}
+                <option key={index} value={department.value}>
+                  {department.label}
                 </option>
               )
             })}
@@ -187,11 +202,9 @@ const Homepage = () => {
         </InputWrapper>
         <DivButton>
           <InputButton type="submit" value="Save" />
+          {modaleIsOpen && <Modale hideModale={closeModale} />}
         </DivButton>
       </Form>
-
-      {modaleIsOpen && <Modale hideModale={closeModale}/>}
-
     </>
   )
 }

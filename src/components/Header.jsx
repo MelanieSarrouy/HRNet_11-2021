@@ -4,6 +4,7 @@ import { NavStyled, StyledLink, Title1 } from '../styles/components/header'
 
 
 const Header = () => {
+
   return (
     <div>
       <div>
@@ -15,7 +16,7 @@ const Header = () => {
         <StyledLink to="/">
           Create Employee
         </StyledLink>
-        <StyledLink to="/employees-list">
+        <StyledLink to="/employees-list" >
           Current Employees
         </StyledLink>
       </NavStyled>
