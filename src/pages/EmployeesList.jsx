@@ -1,48 +1,40 @@
 import React, { useState } from 'react'
 import Input from '../components/Input'
-import Table from '../components/Table'
-import { InputLabel } from '../styles/components/input'
-
-import {
-  Entries,
-  EntriesText,
-  FiltersWrapper,
-  Search,
-  Button,
-} from '../styles/pages/emplyeesList'
-import { SelectStyle } from '../styles/pages/homepage'
+import Table from '../components/table/Table'
+import { FiltersWrapper, Search } from '../styles/pages/emplyeesList'
 import { useSelector } from 'react-redux'
+import Entries from '../components/table/Entries'
+import EntriesDisplayed from '../components/table/EntriesDisplayed'
+import Pagination from '../components/table/Pagination'
 
 const EmployeesList = () => {
   const [search, setSearch] = useState('')
   const [entries, setEntries] = useState(10)
+  const [page, setPage] = useState(1)
 
   const employees = useSelector((state) => state.getEmployees.employees)
   const length = employees.length
 
-
+  const division = employees.length / entries
+  const lastDataOnPage = page * entries
+  const firstDataOnPage = lastDataOnPage - entries
+  const fullPages = Math.trunc(division)
+  const pageCount = Math.ceil(division)
+  let pageCountRange = []
+  for (let i = 0; i < pageCount; i++) {
+    pageCountRange.push(i)
+  }
+  const employeesToDisplay = employees.slice(firstDataOnPage, lastDataOnPage)
+  const handleChange = (e) => {
+    setEntries(e.target.value)
+    setPage(1)
+  }
   return (
     <>
       <h2 className="sr-only">Current employees</h2>
       <section>
         <FiltersWrapper>
-          <Entries>
-            <InputLabel htmlFor="entries">Show</InputLabel>
-            <SelectStyle
-              name="entries"
-              id="entries"
-              value={entries}
-              onChange={(e) => {
-                setEntries(e.target.value)
-              }}
-            >
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
-            </SelectStyle>
-            <EntriesText> entries</EntriesText>
-          </Entries>
+          <Entries value={entries} onChange={handleChange} />
           <Search>
             <Input // Search
               direction={'row'}
@@ -56,17 +48,21 @@ const EmployeesList = () => {
             />
           </Search>
         </FiltersWrapper>
-        {length > 0 && <Table employees={employees} />}
+
+        {length > 0 && <Table employees={employeesToDisplay} />}
+
         <FiltersWrapper>
-          <p>
-            Showing 1 to {entries} of {length} entries
-          </p>
-          <div>
-            <span>Previous</span>
-            <Button>1</Button>
-            <Button>2</Button>
-            <span>Next</span>
-          </div>
+
+          <EntriesDisplayed
+            page={page}
+            fullPages={fullPages}
+            firstDataOnPage={firstDataOnPage}
+            lastDataOnPage={lastDataOnPage}
+            length={length}
+          />
+
+          <Pagination setPage={setPage} page={page} pageCount={pageCount} pageCountRange={pageCountRange} />
+        
         </FiltersWrapper>
       </section>
     </>

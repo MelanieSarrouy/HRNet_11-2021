@@ -6,34 +6,23 @@ import {
   TBody,
   ThDiv,
   TrHead,
-} from '../styles/components/table'
-import SVG from './SVG'
+} from '../../styles/components/table/table'
+import Sorts from './Sorts'
+import keys from '../../datas/keys'
 
-const tableHead = [
-  'First Name',
-  'Last Name',
-  'Start Date',
-  'Department',
-  'Date of birth',
-  'Street',
-  'City',
-  'State',
-  'Zip Code',
-]
 
 const Table = ({ employees }) => {
-
   return (
     <TableContainer>
       <TableStyle>
         <thead>
           <TrHead>
-            {tableHead.map((element, index) => {
+            {keys.map((element, index) => {
               return (
                 <th key={index}>
                   <ThDiv>
-                    <p>{element}</p>
-                    <SVG />
+                    <p>{element.name}</p>
+                    <Sorts id={element.id} />
                   </ThDiv>
                 </th>
               )
@@ -46,9 +35,9 @@ const Table = ({ employees }) => {
               <TBody key={id}>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
-                <td>{employee.dateOfBirth}</td>
-                <td>{employee.department}</td>
                 <td>{employee.startDate}</td>
+                <td>{employee.department}</td>
+                <td>{employee.dateOfBirth}</td>
                 <td>{employee.street}</td>
                 <td>{employee.city}</td>
                 <td>{employee.state}</td>

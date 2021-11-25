@@ -5,6 +5,7 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.direction};
   justify-content: left;
+  align-items: ${(props) => props.direction};
   padding: .4rem 0;
 `
 export const InputLabel = styled.label`

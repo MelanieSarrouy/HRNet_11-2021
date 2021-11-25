@@ -19,7 +19,6 @@ export const StyledLink = styled(NavLink)`
     border-radius: 0.25rem 0.25rem 0px 0px;
     color: white;
     border-bottom: 1px inset ${colors.textLight};
-
     &.active, &.active:hover {
       background-color: ${colors.background};
       color: ${colors.text};

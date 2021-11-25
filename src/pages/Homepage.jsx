@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Input from '../components/Input'
 import Modale from '../components/Modale'
-import departments from '../datas/department'
+import departments from '../datas/departments'
 import states from '../datas/states'
-import { InputLabel, InputWrapper } from '../styles/components/input'
 import {
   Form,
   DivButton,
@@ -12,12 +11,11 @@ import {
   DivInputZipWrapper,
   FieldsetStyle,
   InputButton,
-  SelectStyle,
   Legend,
 } from '../styles/pages/homepage'
 import { addAndGetEmployees } from '../firebase/firebaseServices'
 import { useStore } from 'react-redux'
-
+import Select from '../components/Select'
 
 const Homepage = () => {
   const [firstName, setFirstName] = useState('')
@@ -28,14 +26,23 @@ const Homepage = () => {
   const [city, setCity] = useState('')
   const [state, setState] = useState('AL')
   const [zipCode, setZipCode] = useState('')
-  const [department, setDepartment] = useState('sales')
+  const [department, setDepartment] = useState('engineering')
 
-  const departmentSorted = departments.sort()
+  function sortDepartments(x, y) {
+    if (x.label < y.label) {
+      return -1
+    }
+    if (x.label > y.label) {
+      return 1
+    }
+    return 0
+  }
+  const departmentsSorted = departments.sort(sortDepartments)
+
   const USAStates = states
   const [modaleIsOpen, setModaleIsOpen] = useState(false)
 
   const store = useStore()
-
 
   const closeModale = () => {
     setModaleIsOpen(false)
@@ -146,27 +153,16 @@ const Homepage = () => {
               }}
             />
           </DivInputWrapper>
-
-          <InputWrapper direction={'column'}>
-            <InputLabel htmlFor="state">State</InputLabel>
-            <SelectStyle
-              name="state"
-              id="state"
-              value={state}
-              onChange={(e) => {
-                setState(e.target.value)
-              }}
-            >
-              {USAStates.map((state, index) => {
-                return (
-                  <option key={index} value={state.value}>
-                    {state.label}
-                  </option>
-                )
-              })}
-            </SelectStyle>
-          </InputWrapper>
-
+          <Select
+            direction={'column'}
+            alignItems={'left'}
+            forAndId={'state'}
+            value={state}
+            onChange={(e) => {
+              setState(e.target.value)
+            }}
+            optionsList={USAStates}
+          />
           <DivInputZipWrapper>
             <Input // Zip Code
               direction={'row'}
@@ -181,25 +177,17 @@ const Homepage = () => {
           </DivInputZipWrapper>
         </FieldsetStyle>
 
-        <InputWrapper direction={'column'}>
-          <InputLabel htmlFor="department">Department</InputLabel>
-          <SelectStyle
-            name="department"
-            id="department"
-            value={department}
-            onChange={(e) => {
-              setDepartment(e.target.value)
-            }}
-          >
-            {departmentSorted.map((department, index) => {
-              return (
-                <option key={index} value={department.value}>
-                  {department.label}
-                </option>
-              )
-            })}
-          </SelectStyle>
-        </InputWrapper>
+        <Select
+          direction={'column'}
+          alignItems={'left'}
+          forAndId={'department'}
+          value={department}
+          onChange={(e) => {
+            setDepartment(e.target.value)
+          }}
+          optionsList={departmentsSorted}
+        />
+
         <DivButton>
           <InputButton type="submit" value="Save" />
           {modaleIsOpen && <Modale hideModale={closeModale} />}

@@ -10,6 +10,7 @@ export const TrHead = styled.tr`
   & > th {
     padding: 0.4rem;
     vertical-align: middle;
+    white-space: nowrap;
   }
 `
 export const TBodyContainer = styled.tbody`
@@ -26,11 +27,8 @@ export const TBody = styled.tr`
     font-weight: 300;
     padding: 0.6rem 0.4rem;
     line-height: 1.5rem;
-    text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
-    min-width: 5rem;
-    ${'' /* font-size: 0.9rem; */}
+    ${'' /* max-width: 8rem; */}
   }
 `
 export const ThDiv = styled.div`

@@ -7,7 +7,6 @@ export const Main = styled.main`
   border-right: 1px inset ${colors.textLight};
   border-bottom: 1px inset ${colors.textLight};
   border-radius: 0px 0px 5px 5px;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   background-color: ${colors.background}
 `
 export const Form = styled.form`
@@ -89,24 +88,6 @@ export const InputButton = styled.input`
     width: 100%;
   }
 
-`
-export const SelectStyle = styled.select`
-  padding: .5rem .35rem;
-  border-radius: 0.25rem;
-  border: 1px inset ${colors.background};
-  font-size: .9rem;
-  background-color: white;
-  height: auto;
-  &:hover,
-  &:focus {
-    background-color: rgba(188, 140, 242, 0.1);
-  }
-  &:focus-visible {
-    outline: none;
-  }
-  @media (max-width: 575px) {
-    width: 100%;
-  }
 `
 export const Legend = styled.legend`
   padding: 1rem 1rem 1rem 0;

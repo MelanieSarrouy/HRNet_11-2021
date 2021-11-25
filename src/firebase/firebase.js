@@ -10,7 +10,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_HRNET_APP_ID,
 }
 
-
 const app = initializeApp(firebaseConfig)
 
 export const db = getFirestore(app)

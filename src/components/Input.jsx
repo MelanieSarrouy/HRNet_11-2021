@@ -7,7 +7,7 @@ import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input
  * @param {string} string 
  * @returns {string}
  */
- function capitalizeFirstLetter(string) {
+ export function capitalizeFirstLetter(string) {
   const regex = /-/gi 
   const newString = string.replace(regex, ' ')
   return newString
