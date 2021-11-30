@@ -5,7 +5,7 @@ import {
   TBody,
   TrBody,
   TrHead,
-} from '../../styles/components/tableWithSortingAndFilters/table'
+} from '../../../styles/components/tableWithSortingAndFilters/table'
 import TableBodyRow from './TableBodyRow'
 import TableHeadRow from './TableHeadRow'
 

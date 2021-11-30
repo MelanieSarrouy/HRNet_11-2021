@@ -1,7 +1,7 @@
 import React from 'react'
-import { capitalizeFirstLetter } from '../helpers/capitalizeFirstLetter'
-import { InputLabel, InputWrapper } from '../styles/components/input'
-import { SelectStyle } from '../styles/components/select'
+import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter'
+import { InputLabel, InputWrapper } from '../../styles/components/input'
+import { SelectStyle } from '../../styles/components/select'
 
 const Select = ({
   direction,

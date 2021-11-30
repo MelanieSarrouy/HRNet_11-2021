@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import { GlobalStyle } from './styles/bases/globalStyle'
+import { GlobalStyle } from '../styles/bases/globalStyle'
 import Homepage from './pages/Homepage'
 import EmployeesList from './pages/EmployeesList'
-import { Main } from './styles/pages/homepage'
+import { Main } from '../styles/pages/homepage'
 import { useStore } from 'react-redux'
 import { useEffect } from 'react'
-import { getEmployees } from './firebase/firebaseServices'
-import { NotFound } from 'http-errors'
+import { getEmployees } from '../firebase/firebaseServices'
+import NotFoundPage from './pages/NotFoundPage'
 
 export const App = () => {
   const store = useStore()
@@ -26,7 +26,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/employees-list" element={<EmployeesList />} />
-            <Route element={<NotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Main>
       </BrowserRouter>

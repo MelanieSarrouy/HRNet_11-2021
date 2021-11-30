@@ -1,9 +1,9 @@
-import { capitalizeFirstLetter } from '../helpers/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter'
 import {
   InputLabel,
   InputStyle,
   InputWrapper,
-} from '../styles/components/input'
+} from '../../styles/components/input'
 
 /**
  * Input component to display input buttons

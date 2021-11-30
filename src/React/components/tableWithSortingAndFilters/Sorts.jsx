@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { dynamicSortDown } from '../../helpers/dynamicSortDown'
-import { dynamicSortUp } from '../../helpers/dynamicSortUp'
-import { employeesListSuccess } from '../../Redux/actions/actionGetEmployees'
+import { dynamicSortDown } from '../../../helpers/dynamicSortDown'
+import { dynamicSortUp } from '../../../helpers/dynamicSortUp'
+import { employeesListSuccess } from '../../../Redux/actions/actionGetEmployees'
 import {
   IconButton,
   IconsDiv,
-} from '../../styles/components/tableWithSortingAndFilters/sorts'
+} from '../../../styles/components/tableWithSortingAndFilters/sorts'
 
 const Sorts = ({ id, list }) => {
   const dispatch = useDispatch()

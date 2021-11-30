@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThDiv } from '../../styles/components/tableWithSortingAndFilters/tableHeadRow'
+import { ThDiv } from '../../../styles/components/tableWithSortingAndFilters/tableHeadRow'
 import Sorts from './Sorts'
 
 const TableHeadRow = ({ element, list, employeesToDisplay }) => {

@@ -1,11 +1,11 @@
 import React from 'react'
-import colors from '../../styles/bases/colors'
+import colors from '../../../styles/bases/colors'
 import {
   DivPagination,
   ButtonNumber,
   ButtonText,
   TextNoButton,
-} from '../../styles/components/tableWithSortingAndFilters/pagination'
+} from '../../../styles/components/tableWithSortingAndFilters/pagination'
 
 const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
   return (

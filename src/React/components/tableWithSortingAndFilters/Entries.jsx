@@ -2,7 +2,7 @@ import React from 'react'
 import {
   EntriesText,
   EntriesStyle,
-} from '../../styles/components/tableWithSortingAndFilters/entries'
+} from '../../../styles/components/tableWithSortingAndFilters/entries'
 import Select from '../Select'
 
 const Entries = ({ value, onChange, entriesNumber }) => {

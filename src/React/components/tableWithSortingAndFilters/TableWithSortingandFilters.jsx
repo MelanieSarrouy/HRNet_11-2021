@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { standardizeAndLowerCase } from '../../helpers/standardizeAndLowerCase';
-import { FiltersWrapper, NoData } from '../../styles/components/tableWithSortingAndFilters/tableWithSortingAndFilters';
+import { standardizeAndLowerCase } from '../../../helpers/standardizeAndLowerCase';
+import { FiltersWrapper, NoData } from '../../../styles/components/tableWithSortingAndFilters/tableWithSortingAndFilters';
 import Entries from './Entries';
 import EntriesDisplayed from './EntriesDisplayed';
 import Pagination from './Pagination';

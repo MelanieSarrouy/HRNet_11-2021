@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import TableWithSortingandFilters from '../components/tableWithSortingAndFilters/TableWithSortingandFilters'
-import entriesQuantity from '../datas/entriesQuantity'
-import keys from '../datas/keys'
+import entriesQuantity from '../../datas/entriesQuantity'
+import keys from '../../datas/keys'
 
 const EmployeesList = () => {
 

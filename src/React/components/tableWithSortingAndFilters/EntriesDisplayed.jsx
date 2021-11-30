@@ -1,5 +1,5 @@
 import React from 'react'
-import { Span } from '../../styles/components/tableWithSortingAndFilters/entriesDisplayed'
+import { Span } from '../../../styles/components/tableWithSortingAndFilters/entriesDisplayed'
 
 const EntriesDisplayed = ({
   page,

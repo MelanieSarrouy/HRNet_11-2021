@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Input from '../components/Input'
 import Modale from '../components/Modale'
-import departments from '../datas/departments'
-import states from '../datas/states'
+import departments from '../../datas/departments'
+import states from '../../datas/states'
 import {
   Form,
   DivButton,
@@ -12,11 +12,11 @@ import {
   FieldsetStyle,
   InputButton,
   Legend,
-} from '../styles/pages/homepage'
-import { addAndGetEmployees } from '../firebase/firebaseServices'
+} from '../../styles/pages/homepage'
+import { addAndGetEmployees } from '../../firebase/firebaseServices'
 import { useStore } from 'react-redux'
 import Select from '../components/Select'
-import { sortDepartments } from '../helpers/form/sortDepartments'
+import { sortDepartments } from '../../helpers/form/sortDepartments'
 
 const Homepage = () => {
   const [firstName, setFirstName] = useState('')

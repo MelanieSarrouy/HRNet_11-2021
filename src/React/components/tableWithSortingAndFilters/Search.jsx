@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchDiv } from '../../styles/components/tableWithSortingAndFilters/search'
+import { SearchDiv } from '../../../styles/components/tableWithSortingAndFilters/search'
 import Input from '../Input'
 
 const Search = ({ value, onChange }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { NavStyled, StyledLink, Title1 } from '../styles/components/header'
+import { NavStyled, StyledLink, Title1 } from '../../styles/components/header'
 
 const Header = () => {
   return (
