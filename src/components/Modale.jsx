@@ -2,7 +2,7 @@ import React from 'react'
 import close from '../assets/close.svg'
 import { IMG, ModaleContent, ModaleDiv } from '../styles/components/modale'
 
-const Modale = ({hideModale}) => {
+const Modale = ({ hideModale }) => {
   return (
     <ModaleDiv>
       <ModaleContent>

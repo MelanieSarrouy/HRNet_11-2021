@@ -16,6 +16,7 @@ import {
 import { addAndGetEmployees } from '../firebase/firebaseServices'
 import { useStore } from 'react-redux'
 import Select from '../components/Select'
+import { sortDepartments } from '../helpers/form/sortDepartments'
 
 const Homepage = () => {
   const [firstName, setFirstName] = useState('')
@@ -28,15 +29,6 @@ const Homepage = () => {
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('engineering')
 
-  function sortDepartments(x, y) {
-    if (x.label < y.label) {
-      return -1
-    }
-    if (x.label > y.label) {
-      return 1
-    }
-    return 0
-  }
   const departmentsSorted = departments.sort(sortDepartments)
 
   const USAStates = states

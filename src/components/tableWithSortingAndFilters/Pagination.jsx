@@ -5,10 +5,9 @@ import {
   ButtonNumber,
   ButtonText,
   TextNoButton,
-} from '../../styles/components/table/pagination'
+} from '../../styles/components/tableWithSortingAndFilters/pagination'
 
 const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
-
   return (
     <DivPagination>
       {page === 1 ? (
@@ -24,7 +23,10 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
       )}
 
       {pageCountRange.map((index) => {
-        if ((page === pageCountRange[index + 1]) || (page -1  === pageCountRange[index])) {
+        if (
+          page === pageCountRange[index + 1] ||
+          page - 1 === pageCountRange[index]
+        ) {
           return (
             <ButtonNumber
               backgroundColor={colors.primary}

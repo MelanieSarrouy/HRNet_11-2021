@@ -2,11 +2,10 @@ import React from 'react'
 import {
   EntriesText,
   EntriesStyle,
-} from '../../styles/components/table/entries'
+} from '../../styles/components/tableWithSortingAndFilters/entries'
 import Select from '../Select'
-import entriesQuantity from  '../../datas/entriesQuantity'
 
-const Entries = ({ value, onChange }) => {
+const Entries = ({ value, onChange, entriesNumber }) => {
   return (
     <EntriesStyle>
       <Select
@@ -15,7 +14,7 @@ const Entries = ({ value, onChange }) => {
         forAndId={'show'}
         value={value}
         onChange={onChange}
-        optionsList={entriesQuantity}
+        optionsList={entriesNumber}
       />
       <EntriesText>entries</EntriesText>
     </EntriesStyle>

@@ -6,7 +6,6 @@ export const TableContainer = styled.div`
 `
 export const TableStyle = styled.table`
   width: 100%;
-
 `
 export const TrHead = styled.tr`
   & > th {
@@ -15,11 +14,11 @@ export const TrHead = styled.tr`
     white-space: nowrap;
   }
 `
-export const TBodyContainer = styled.tbody`
+export const TBody = styled.tbody`
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 `
-export const TBody = styled.tr`
+export const TrBody = styled.tr`
   background-color: white;
 
   &:nth-child(even) {
@@ -34,10 +33,4 @@ export const TBody = styled.tr`
     white-space: nowrap;
     ${'' /* max-width: 8rem; */}
   }
-`
-export const ThDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
 `

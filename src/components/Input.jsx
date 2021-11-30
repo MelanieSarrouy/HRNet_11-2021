@@ -1,23 +1,9 @@
-import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input"
-
-/**
- * Function capitalizeFirstLetter to capitalize label's first letter
- * @function
- * @name capitalizeFirstLetter
- * @param {string} string 
- * @returns {string}
- */
- export function capitalizeFirstLetter(string) {
-  const regex = /-/gi 
-  const newString = string.replace(regex, ' ')
-  return newString
-    .toLowerCase()
-    .split(' ')
-    .map(word => {
-      return word[0].toUpperCase() + word.substr(1)
-    })
-    .join(' ')
-}
+import { capitalizeFirstLetter } from '../helpers/capitalizeFirstLetter'
+import {
+  InputLabel,
+  InputStyle,
+  InputWrapper,
+} from '../styles/components/input'
 
 /**
  * Input component to display input buttons
@@ -30,8 +16,14 @@ import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input
  * @returns {?JSX}
  */
 
-const Input = ({ forAndId, inputType, direction, value, onChange, required }) => {
-
+const Input = ({
+  forAndId,
+  inputType,
+  direction,
+  value,
+  onChange,
+  required,
+}) => {
   return (
     <InputWrapper direction={direction}>
       <InputLabel htmlFor={forAndId}>

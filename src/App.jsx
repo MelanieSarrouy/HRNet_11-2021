@@ -7,6 +7,7 @@ import { Main } from './styles/pages/homepage'
 import { useStore } from 'react-redux'
 import { useEffect } from 'react'
 import { getEmployees } from './firebase/firebaseServices'
+import { NotFound } from 'http-errors'
 
 export const App = () => {
   const store = useStore()
@@ -25,7 +26,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/employees-list" element={<EmployeesList />} />
-            {/* <Route component={NotFound} /> */}
+            <Route element={<NotFound />} />
           </Routes>
         </Main>
       </BrowserRouter>

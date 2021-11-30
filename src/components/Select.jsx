@@ -1,12 +1,21 @@
 import React from 'react'
+import { capitalizeFirstLetter } from '../helpers/capitalizeFirstLetter'
 import { InputLabel, InputWrapper } from '../styles/components/input'
 import { SelectStyle } from '../styles/components/select'
-import { capitalizeFirstLetter } from './Input'
 
-const Select = ({ direction, alignItems, forAndId, value, onChange, optionsList }) => {
+const Select = ({
+  direction,
+  alignItems,
+  forAndId,
+  value,
+  onChange,
+  optionsList,
+}) => {
   return (
     <InputWrapper direction={direction} alignItems={alignItems}>
-      <InputLabel htmlFor={forAndId}>{capitalizeFirstLetter(forAndId)}</InputLabel>
+      <InputLabel htmlFor={forAndId}>
+        {capitalizeFirstLetter(forAndId)}
+      </InputLabel>
       <SelectStyle
         name={forAndId}
         id={forAndId}
