@@ -9,7 +9,7 @@ import {
 import TableBodyRow from './TableBodyRow'
 import TableHeadRow from './TableHeadRow'
 
-const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
+const Table = ({ listToDisplay, list, keysToDisplay }) => {
   return (
     <TableContainer>
       <TableStyle>
@@ -21,7 +21,7 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
                   <TableHeadRow
                     element={element}
                     list={list}
-                    employeesToDisplay={employeesToDisplay}
+                    listToDisplay={listToDisplay}
                   />
                 </th>
               )
@@ -29,11 +29,11 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
           </TrHead>
         </thead>
         <TBody>
-          {employeesToDisplay.map((employee, index) => {
+          {listToDisplay.map((el, index) => {
             return (
               <TrBody key={index}>
                 <TableBodyRow
-                  employee={employee}
+                  element={el}
                   keysToDisplay={keysToDisplay}
                 />
               </TrBody>

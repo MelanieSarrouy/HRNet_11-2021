@@ -12,9 +12,9 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
   const [entries, setEntries] = useState(10)
   const [page, setPage] = useState(1)
 
-  const employeesArr = Array.from(list)
+  const listArr = Array.from(list)
 
-  const employeesArrValues = employeesArr.map((el) => {
+  const listArrValues = listArr.map((el) => {
     const valuesWithoutId = {...el} 
     delete valuesWithoutId.id
     const values = Object.values(valuesWithoutId)
@@ -23,20 +23,20 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
     return concat
   })
 
-  let employeesMatchSearch = []
+  let listMatchSearch = []
 
-  for (let i = 0; i < employeesArrValues.length; i++) {
-    if (employeesArrValues[i].includes(search)) {
-      employeesMatchSearch.push(employeesArr[i])
+  for (let i = 0; i < listArrValues.length; i++) {
+    if (listArrValues[i].includes(search)) {
+      listMatchSearch.push(listArr[i])
     }
   }
 
   if (search === '') {
-    employeesMatchSearch = list
+    listMatchSearch = list
   }
 
-  const length = employeesMatchSearch.length
-  const division = employeesMatchSearch.length / entries
+  const length = listMatchSearch.length
+  const division = listMatchSearch.length / entries
   const lastDataOnPage = page * entries
   const firstDataOnPage = lastDataOnPage - entries
   const fullPages = Math.trunc(division)
@@ -47,12 +47,13 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
     pageCountRange.push(i)
   }
 
-  const employeesToDisplay = employeesMatchSearch.slice(
+  const listToDisplay = listMatchSearch.slice(
     firstDataOnPage,
     lastDataOnPage
   )
   const handleChangeSearch = (e) => {
     const value = standardizeAndLowerCase(e.target.value)
+    setPage(1)
     setSearch(value)
   }
   const handleChangeEntries = (e) => {
@@ -68,7 +69,7 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
     </FiltersWrapper>
 
     {length !== 0 ? (
-      <Table employeesToDisplay={employeesToDisplay} list={list} keysToDisplay={keysToDisplay}/>
+      <Table listToDisplay={listToDisplay} list={list} keysToDisplay={keysToDisplay}/>
     ) : (
       <NoData>Oops there isn't any data to display !</NoData>
     )}

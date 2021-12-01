@@ -15,15 +15,15 @@ const Sorts = ({ id, list }) => {
     e.preventDefault()
     const fullId = e.target.id
     const id = fullId.split('-')[0]
-    const newEmmployeesList = Array.from(list).sort(dynamicSortUp(`${id}`))
-    dispatch(employeesListSuccess(newEmmployeesList))
+    const newList = Array.from(list).sort(dynamicSortUp(`${id}`))
+    dispatch(employeesListSuccess(newList))
   }
   const handleClickDown = (e) => {
     e.preventDefault()
     const fullId = e.target.id
     const id = fullId.split('-')[0]
-    const newEmmployeesList = Array.from(list).sort(dynamicSortDown(`${id}`))
-    dispatch(employeesListSuccess(newEmmployeesList))
+    const newList = Array.from(list).sort(dynamicSortDown(`${id}`))
+    dispatch(employeesListSuccess(newList))
   }
 
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const TableBodyRow = ({ employee, keysToDisplay }) => {
+const TableBodyRow = ({ element, keysToDisplay }) => {
   return keysToDisplay.map((el, index) => (
-    <td key={index}>{employee[el.id]}</td>
+    <td key={index}>{element[el.id]}</td>
   ))
 }
 
