@@ -2,16 +2,16 @@ import React from 'react'
 import { SearchDiv } from '../../../styles/components/tableWithSortingAndFilters/search'
 import Input from '../Input'
 
-const Search = ({ value, onChange }) => {
+const Search = (props) => {
   return (
     <SearchDiv>
       <Input // Search
         direction={'row'}
         forAndId={'search:'}
         inputType={'search'}
-        value={value}
+        value={props.value}
         required={false}
-        onChange={onChange}
+        onChange={props.onChange}
       />
     </SearchDiv>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import TableWithSortingandFilters from '../components/tableWithSortingAndFilters/TableWithSortingandFilters'
+import TableWithSortingSearchAndPagination from '../components/TableWithSortingSearchAndPagination/TableWithSortingSearchAndPagination'
 import entriesQuantity from '../../datas/entriesQuantity'
 import keys from '../../datas/keys'
 
@@ -16,7 +16,7 @@ const EmployeesList = () => {
   return (
     <>
       <h2 className="sr-only">Current employees</h2>
-      <TableWithSortingandFilters list={data} entriesNumber={entries} keysToDisplay={keysToDisplay} />
+      <TableWithSortingSearchAndPagination list={data} entriesNumber={entries} keysToDisplay={keysToDisplay} />
     </>
   )
 }

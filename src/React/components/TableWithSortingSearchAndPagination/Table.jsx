@@ -9,19 +9,19 @@ import {
 import TableBodyRow from './TableBodyRow'
 import TableHeadRow from './TableHeadRow'
 
-const Table = ({ listToDisplay, list, keysToDisplay }) => {
+const Table = (props) => {
   return (
     <TableContainer>
       <TableStyle>
         <thead>
           <TrHead>
-            {keysToDisplay.map((element, index) => {
+            {props.keysToDisplay.map((element, index) => {
               return (
                 <th key={index}>
                   <TableHeadRow
                     element={element}
-                    list={list}
-                    listToDisplay={listToDisplay}
+                    list={props.list}
+                    listToDisplay={props.listToDisplay}
                   />
                 </th>
               )
@@ -29,12 +29,12 @@ const Table = ({ listToDisplay, list, keysToDisplay }) => {
           </TrHead>
         </thead>
         <TBody>
-          {listToDisplay.map((el, index) => {
+          {props.listToDisplay.map((el, index) => {
             return (
               <TrBody key={index}>
                 <TableBodyRow
                   element={el}
-                  keysToDisplay={keysToDisplay}
+                  keysToDisplay={props.keysToDisplay}
                 />
               </TrBody>
             )

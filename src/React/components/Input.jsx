@@ -16,25 +16,18 @@ import {
  * @returns {?JSX}
  */
 
-const Input = ({
-  forAndId,
-  inputType,
-  direction,
-  value,
-  onChange,
-  required,
-}) => {
+const Input = (props) => {
   return (
-    <InputWrapper direction={direction}>
-      <InputLabel htmlFor={forAndId}>
-        {capitalizeFirstLetter(forAndId)}
+    <InputWrapper direction={props.direction}>
+      <InputLabel htmlFor={props.forAndId}>
+        {capitalizeFirstLetter(props.forAndId)}
       </InputLabel>
       <InputStyle
-        type={inputType}
-        id={forAndId}
-        value={value}
-        onChange={onChange}
-        required={required}
+        type={props.inputType}
+        id={props.forAndId}
+        value={props.value}
+        onChange={props.onChange}
+        required={props.required}
       />
     </InputWrapper>
   )

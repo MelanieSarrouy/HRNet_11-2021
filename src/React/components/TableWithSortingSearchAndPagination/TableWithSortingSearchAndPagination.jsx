@@ -7,12 +7,12 @@ import Pagination from './Pagination';
 import Search from './Search';
 import Table from './Table';
 
-const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
+const TableWithSortingandFilters = (props) => {
   const [search, setSearch] = useState('')
   const [entries, setEntries] = useState(10)
   const [page, setPage] = useState(1)
 
-  const listArr = Array.from(list)
+  const listArr = Array.from(props.list)
 
   const listArrValues = listArr.map((el) => {
     const valuesWithoutId = {...el} 
@@ -32,7 +32,7 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
   }
 
   if (search === '') {
-    listMatchSearch = list
+    listMatchSearch = props.list
   }
 
   const length = listMatchSearch.length
@@ -64,12 +64,12 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
   return (
     <section>
     <FiltersWrapper>
-      <Entries value={entries} onChange={handleChangeEntries} entriesNumber={entriesNumber} />
+      <Entries value={entries} onChange={handleChangeEntries} entriesNumber={props.entriesNumber} />
       <Search value={search} onChange={handleChangeSearch} />
     </FiltersWrapper>
 
     {length !== 0 ? (
-      <Table listToDisplay={listToDisplay} list={list} keysToDisplay={keysToDisplay}/>
+      <Table listToDisplay={listToDisplay} list={props.list} keysToDisplay={props.keysToDisplay}/>
     ) : (
       <NoData>Oops there isn't any data to display !</NoData>
     )}

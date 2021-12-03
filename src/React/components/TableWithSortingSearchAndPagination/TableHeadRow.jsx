@@ -2,14 +2,14 @@ import React from 'react'
 import { ThDiv } from '../../../styles/components/tableWithSortingAndFilters/tableHeadRow'
 import Sorts from './Sorts'
 
-const TableHeadRow = ({ element, list, listToDisplay }) => {
+const TableHeadRow = (props) => {
   return (
     <ThDiv>
-      <p>{element.name}</p>
+      <p>{props.element.name}</p>
       <Sorts
-        id={element.id}
-        list={list}
-        listToDisplay={listToDisplay}
+        id={props.element.id}
+        list={props.list}
+        listToDisplay={props.listToDisplay}
       />
     </ThDiv>
   )

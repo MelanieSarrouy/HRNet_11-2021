@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Input from '../components/Input'
-import Modale from '../components/Modale'
+// import Modal from '../components/Modal'
+import { Modal } from 'simple-react-modal-ui'
 import departments from '../../datas/departments'
 import states from '../../datas/states'
 import {
@@ -18,6 +19,12 @@ import { useStore } from 'react-redux'
 import Select from '../components/Select'
 import { sortDepartments } from '../../helpers/form/sortDepartments'
 
+
+/**
+ * 
+ * @returns 
+ */
+
 const Homepage = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -32,12 +39,13 @@ const Homepage = () => {
   const departmentsSorted = departments.sort(sortDepartments)
 
   const USAStates = states
-  const [modaleIsOpen, setModaleIsOpen] = useState(false)
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const store = useStore()
 
-  const closeModale = () => {
-    setModaleIsOpen(false)
+  const closeModal = () => {
+    setModalIsOpen(false)
   }
 
   const newEmployee = () => {
@@ -67,7 +75,7 @@ const Homepage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addAndGetEmployees(store, newEmployee)
-    setModaleIsOpen(true)
+    setModalIsOpen(true)
     reset()
   }
 
@@ -182,9 +190,20 @@ const Homepage = () => {
 
         <DivButton>
           <InputButton type="submit" value="Save" />
-          {modaleIsOpen && <Modale hideModale={closeModale} />}
         </DivButton>
       </Form>
+      {modalIsOpen && (
+        <Modal
+          hideModal={closeModal}
+          styleModalBackground
+          styleModal
+          styleModalContent
+          animation={true}
+          closeButton={true}
+        >
+          <p>New employee created !</p>
+        </Modal>
+      )}
     </>
   )
 }

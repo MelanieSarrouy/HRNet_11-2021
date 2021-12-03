@@ -5,16 +5,16 @@ import {
 } from '../../../styles/components/tableWithSortingAndFilters/entries'
 import Select from '../Select'
 
-const Entries = ({ value, onChange, entriesNumber }) => {
+const Entries = (props) => {
   return (
     <EntriesStyle>
       <Select
         direction={'row'}
         alignItems={'center'}
         forAndId={'show'}
-        value={value}
-        onChange={onChange}
-        optionsList={entriesNumber}
+        value={props.value}
+        onChange={props.onChange}
+        optionsList={props.entriesNumber}
       />
       <EntriesText>entries</EntriesText>
     </EntriesStyle>
