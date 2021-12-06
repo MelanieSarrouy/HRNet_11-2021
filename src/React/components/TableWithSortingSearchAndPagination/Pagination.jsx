@@ -1,4 +1,8 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import PropTypes from 'prop-types'
+// styles imports
 import colors from '../../../styles/bases/colors'
 import {
   DivPagination,
@@ -6,6 +10,15 @@ import {
   ButtonText,
   TextNoButton,
 } from '../../../styles/components/tableWithSortingAndFilters/pagination'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Pagination component to display the number of pages
+ * @name Pagination
+ * @param {object} props 
+ * @returns {?JSX}
+ */
 
 const Pagination = (props) => {
   return (
@@ -69,5 +82,16 @@ const Pagination = (props) => {
     </DivPagination>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  pageCountRange: PropTypes.array.isRequired,
+  pageCount: PropTypes.number.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Pagination

@@ -1,9 +1,9 @@
+// IMPORTS // ______________________________________________________________
+
 import React, { useState } from 'react'
-import Input from '../components/Input'
-// import Modal from '../components/Modal'
-import { Modal } from 'simple-react-modal-ui'
-import departments from '../../datas/departments'
-import states from '../../datas/states'
+import { useStore } from 'react-redux'
+import PropTypes from 'prop-types'
+// styles imports
 import {
   Form,
   DivButton,
@@ -14,15 +14,25 @@ import {
   InputButton,
   Legend,
 } from '../../styles/pages/homepage'
-import { addAndGetEmployees } from '../../firebase/firebaseServices'
-import { useStore } from 'react-redux'
+// components imports
 import Select from '../components/Select'
+import Input from '../components/Input'
+// Modal npm package import
+import { Modal } from 'simple-react-modal-ui'
+// firebase imports
+import { addAndGetEmployees } from '../../firebase/firebaseServices'
+// functions imports
 import { sortDepartments } from '../../helpers/form/sortDepartments'
+// datas imports
+import departments from '../../datas/departments'
+import states from '../../datas/states'
 
+// JSX // _________________________________________________________________
 
 /**
- * 
- * @returns 
+ * Homepage component to display website's homepage
+ * @name Homepage
+ * @returns {?JSX}
  */
 
 const Homepage = () => {
@@ -72,6 +82,7 @@ const Homepage = () => {
     setZipCode('')
     setDepartment('Sales')
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     addAndGetEmployees(store, newEmployee)
@@ -90,7 +101,6 @@ const Homepage = () => {
             inputType={'text'}
             value={firstName}
             required={true}
-            placeholder={''}
             onChange={(e) => {
               setFirstName(e.target.value)
             }}
@@ -153,7 +163,7 @@ const Homepage = () => {
               }}
             />
           </DivInputWrapper>
-          <Select
+          <Select // States
             direction={'column'}
             alignItems={'left'}
             forAndId={'state'}
@@ -177,7 +187,7 @@ const Homepage = () => {
           </DivInputZipWrapper>
         </FieldsetStyle>
 
-        <Select
+        <Select // Department
           direction={'column'}
           alignItems={'left'}
           forAndId={'department'}
@@ -192,6 +202,9 @@ const Homepage = () => {
           <InputButton type="submit" value="Save" />
         </DivButton>
       </Form>
+
+      {/* modal */}
+
       {modalIsOpen && (
         <Modal
           hideModal={closeModal}
@@ -207,5 +220,18 @@ const Homepage = () => {
     </>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Modal.propTypes = {
+  hideModal: PropTypes.func.isRequired,
+  styleModalBackground: PropTypes.string.isRequired,
+  styleModal: PropTypes.string.isRequired,
+  styleModalContent: PropTypes.number.isRequired,
+  animation: PropTypes.bool.isRequired,
+  closeButton: PropTypes.bool.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Homepage

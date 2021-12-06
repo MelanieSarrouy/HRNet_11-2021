@@ -1,8 +1,19 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { Link } from 'react-router-dom'
+// styles imports
 import { NavStyled, StyledLink, Title1 } from '../../styles/components/header'
 
-const Header = () => {
+// JSX // _________________________________________________________________
+
+/**
+ * Header component to display website's header
+ * @name Header
+ * @returns {?JSX}
+ */
+
+ const Header = () => {
   return (
     <div>
       <div>
@@ -17,5 +28,7 @@ const Header = () => {
     </div>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default Header

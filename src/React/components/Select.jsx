@@ -1,28 +1,35 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import PropTypes from 'prop-types'
+// functions imports
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter'
+// styles imports
 import { InputLabel, InputWrapper } from '../../styles/components/input'
 import { SelectStyle } from '../../styles/components/select'
 
-const Select = ({
-  direction,
-  alignItems,
-  forAndId,
-  value,
-  onChange,
-  optionsList,
-}) => {
+// JSX // _________________________________________________________________
+
+/**
+ * Select component to display select dropdowns
+ * @name Select
+ * @param {object} props
+ * @returns {?JSX}
+ */
+
+const Select = (props) => {
   return (
-    <InputWrapper direction={direction} alignItems={alignItems}>
-      <InputLabel htmlFor={forAndId}>
-        {capitalizeFirstLetter(forAndId)}
+    <InputWrapper direction={props.direction} alignItems={props.alignItems}>
+      <InputLabel htmlFor={props.forAndId}>
+        {capitalizeFirstLetter(props.forAndId)}
       </InputLabel>
       <SelectStyle
-        name={forAndId}
-        id={forAndId}
-        value={value}
-        onChange={onChange}
+        name={props.forAndId}
+        id={props.forAndId}
+        value={props.value}
+        onChange={props.onChange}
       >
-        {optionsList.map((option, index) => {
+        {props.optionsList.map((option, index) => {
           return (
             <option key={index} value={option.value}>
               {option.label}
@@ -33,5 +40,21 @@ const Select = ({
     </InputWrapper>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Select.propTypes = {
+  direction: PropTypes.string.isRequired,
+  alignItems: PropTypes.string.isRequired,
+  forAndId: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  onChange: PropTypes.func.isRequired,
+  optionsList: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Select

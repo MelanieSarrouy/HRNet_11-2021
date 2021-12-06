@@ -1,4 +1,8 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import PropTypes from 'prop-types'
+// styles imports
 import {
   TableContainer,
   TableStyle,
@@ -6,8 +10,18 @@ import {
   TrBody,
   TrHead,
 } from '../../../styles/components/tableWithSortingAndFilters/table'
+// components imports
 import TableBodyRow from './TableBodyRow'
 import TableHeadRow from './TableHeadRow'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Table component to display the table
+ * @name Table
+ * @param {object} props 
+ * @returns {?JSX}
+ */
 
 const Table = (props) => {
   return (
@@ -44,5 +58,15 @@ const Table = (props) => {
     </TableContainer>
   )
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Table.propTypes = {
+  keysToDisplay: PropTypes.array.isRequired,
+  list: PropTypes.array.isRequired,
+  listToDisplay: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Table

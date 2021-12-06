@@ -1,17 +1,29 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useSelector } from 'react-redux'
+// components imports
 import TableWithSortingSearchAndPagination from '../components/TableWithSortingSearchAndPagination/TableWithSortingSearchAndPagination'
+// datas imports
 import entriesQuantity from '../../datas/entriesQuantity'
 import keys from '../../datas/keys'
 
+// JSX // _________________________________________________________________
+
+/**
+ * EmployeesList component to display website's employees-list page
+ * @name EmployeesList
+ * @returns {?JSX}
+ */
+
 const EmployeesList = () => {
 
-  let data
+  let data, entries, keysToDisplay
+
   data = useSelector((state) => state.getEmployees.employees)
-  let entries
   entries = entriesQuantity
-  let keysToDisplay
   keysToDisplay = keys
+
 
   return (
     <>
@@ -20,5 +32,7 @@ const EmployeesList = () => {
     </>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default EmployeesList
