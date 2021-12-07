@@ -1,10 +1,20 @@
+// IMPORTS // ______________________________________________________________
+
 import { addDoc, collection, getDocs } from '@firebase/firestore'
+import { db } from './firebase'
+// redux actions imports
 import {
   employeesListError,
   employeesListLoading,
   employeesListSuccess,
 } from '../Redux/actions/actionGetEmployees'
-import { db } from './firebase'
+
+/**
+ * getEmployees is an asynchrone function to get firebase database's list
+ * @name getEmployees
+ * @function
+ * @param {object} store 
+ */
 
 export const getEmployees = async (store) => {
   store.dispatch(employeesListLoading())
@@ -17,6 +27,14 @@ export const getEmployees = async (store) => {
     store.dispatch(employeesListError(error.message))
   }
 }
+
+/**
+ * addAndGetEmployees is an asynchrone function to add new object on Firebase database 
+ * then get firebase updating database's new list
+ * @name addAndGetEmployees
+ * @function
+ * @param {object} store 
+ */
 
 export const addAndGetEmployees = async (store, newEmployee) => {
   store.dispatch(employeesListLoading())

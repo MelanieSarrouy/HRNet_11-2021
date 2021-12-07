@@ -5,7 +5,8 @@
  * @param {string} string 
  * @returns {string}
  */
- export const capitalizeFirstLetter = (string) => {
+
+export const capitalizeFirstLetter = (string) => {
   const regex = /-/gi 
   const newString = string.replace(regex, ' ')
   return newString

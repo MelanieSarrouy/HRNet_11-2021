@@ -1,14 +1,15 @@
+// IMPORTS // ______________________________________________________________
+
 import { createReducer } from "@reduxjs/toolkit"
 import { employeesListError, employeesListLoading, employeesListSuccess,  } from "../actions/actionGetEmployees"
 
+// REDUCER // ______________________________________________________________
 
 const initialStateGetEmployees = {
   isLoading: false,
   employees: [],
   isEmpty: true,
   error: null,
-
-
 }
 
 export const getEmployeesReducer = createReducer(initialStateGetEmployees, (builder) => {

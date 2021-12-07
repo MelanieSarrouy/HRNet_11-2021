@@ -42,7 +42,7 @@ const Pagination = (props) => {
         ) {
           return (
             <ButtonNumber
-              backgroundColor={colors.primary}
+              backgroundColor={colors.secondary}
               color="white"
               key={index + 1}
               onClick={(e) => {

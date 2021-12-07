@@ -22,7 +22,7 @@ export const TrBody = styled.tr`
   background-color: white;
 
   &:nth-child(even) {
-    background-color: rgba(188, 140, 242, 0.2);
+    background-color: rgba(147, 173, 24, 0.2);
   }
   & > td {
     border-left: 1px dotted ${colors.textLight};

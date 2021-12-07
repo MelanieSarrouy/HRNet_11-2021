@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import colors from './colors'
+import logo from '../../assets/logo-vert.png'
 
 export const GlobalStyle = createGlobalStyle`
 /* Styles principaux */
@@ -23,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     margin: auto;
     padding: 0 7%;
     line-height: 1;
+    height: 100vh;
+    background-image: url(${logo});
+    background-position: bottom -5rem right -5rem;
+    background-repeat: no-repeat;
+    background-size: 15rem;
   }
   img {
     width: 100%;

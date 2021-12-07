@@ -1,5 +1,13 @@
 const dateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/
 
+/**
+ * dynamicSortUp is a function to sort array objects's property in ascending order
+ * @function
+ * @name dynamicSortUp
+ * @param {string} property 
+ * @returns {array}
+ */
+
 export const dynamicSortUp = (property) => {
   return function compare(a, b) {
     if (dateRegex.test(a[property]) === true) {

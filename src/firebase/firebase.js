@@ -1,5 +1,14 @@
+// IMPORTS // ______________________________________________________________
+
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
+
+/**
+ * firebaseConfig is an object with environment variables to configure firebase
+ * Environment variables are in .env file (file not committed)
+ * You can find .env_sample file to show how to create your own .env file
+ * In /datas/employees.json you will find an example of database to create your own firebase database
+ */
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_HRNET_API_KEY,

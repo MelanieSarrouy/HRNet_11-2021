@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { useStore } from 'react-redux'
-import PropTypes from 'prop-types'
 // styles imports
 import {
   Form,
@@ -46,13 +45,13 @@ const Homepage = () => {
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('engineering')
 
-  const departmentsSorted = departments.sort(sortDepartments)
-
-  const USAStates = states
-
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const store = useStore()
+
+  const departmentsSorted = departments.sort(sortDepartments)
+
+  const USAStates = states
 
   const closeModal = () => {
     setModalIsOpen(false)
@@ -219,17 +218,6 @@ const Homepage = () => {
       )}
     </>
   )
-}
-
-// PROPTYPES // ___________________________________________________________
-
-Modal.propTypes = {
-  hideModal: PropTypes.func.isRequired,
-  styleModalBackground: PropTypes.string.isRequired,
-  styleModal: PropTypes.string.isRequired,
-  styleModalContent: PropTypes.number.isRequired,
-  animation: PropTypes.bool.isRequired,
-  closeButton: PropTypes.bool.isRequired,
 }
 
 // EXPORT // ______________________________________________________________

@@ -15,7 +15,7 @@ export const ButtonNumber = styled.button`
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
   &:hover {
-    background-color: ${colors.secondary};
+    background-color: ${colors.primary};
     color: white;
   }
 }

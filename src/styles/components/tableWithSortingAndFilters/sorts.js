@@ -8,10 +8,9 @@ padding: 0 .8rem;
 `
 export const IconButton = styled.button`
 background-color: ${colors.background};
-color: rgba(0, 0, 0, .4);
+color: rgba(147, 173, 24, 0.6);
 &:hover {
-  background-color: ${colors.background};
-  opacity: 0.5;
+  color: ${colors.primary};
 }
 &:focus {
   color: ${colors.primary};

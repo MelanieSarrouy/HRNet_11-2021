@@ -1,4 +1,13 @@
+
 const dateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/
+
+/**
+ * dynamicSortDown is a function to sort array objects's property in descending order
+ * @function
+ * @name dynamicSortDown
+ * @param {string} property 
+ * @returns {array}
+ */
 
 export const dynamicSortDown = (property) => {
   return function compare(a, b) {

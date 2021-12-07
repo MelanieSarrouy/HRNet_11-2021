@@ -7,7 +7,7 @@ export const Main = styled.main`
   border-right: 1px inset ${colors.textLight};
   border-bottom: 1px inset ${colors.textLight};
   border-radius: 0px 0px 5px 5px;
-  background-color: ${colors.background}
+  background-color: ${colors.background};
 `
 export const Form = styled.form`
   display: flex;

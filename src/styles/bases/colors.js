@@ -1,6 +1,6 @@
 const colors = {
-  primary: '#aa14f0', //vert
-  secondary: '#b373e7', //bleu
+  primary: '#5a6e0b', //vert clair
+  secondary: '#93ad18', //vert foncé
   text: '#000000', //typo
   textLight: '#bfc8d3',
   background: '#eeeeee', //gris clair
