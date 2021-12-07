@@ -1,25 +1,28 @@
+// IMPORTS // ______________________________________________________________
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import { GlobalStyle } from '../styles/bases/globalStyle'
-import Homepage from './pages/Homepage'
-import EmployeesList from './pages/EmployeesList'
-import { Main } from '../styles/pages/homepage'
 import { useStore } from 'react-redux'
 import { useEffect } from 'react'
+// styles imports
+import { GlobalStyle } from '../styles/bases/globalStyle'
+import { Main } from '../styles/pages/homepage'
+// firebase imports
 import { getEmployees } from '../firebase/firebaseServices'
+// components imports
+import Header from './components/Header'
+import Homepage from './pages/Homepage'
+import EmployeesList from './pages/EmployeesList'
 import NotFoundPage from './pages/NotFoundPage'
-import styled from 'styled-components'
 
+// JSX // _________________________________________________________________
 
-export const Divimg = styled.div`
-  position: fixed;
-  right: -10rem;
-  bottom: -10rem;
-  z-index: 0;
-  & img {
-    width: 20rem;
-  }
-`
+/**
+ * App's component to manage various routes
+ * and display corresponding pages components
+ * @name App
+ * @returns {?JSX}
+ */
+
 export const App = () => {
   const store = useStore()
 
