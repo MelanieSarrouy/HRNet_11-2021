@@ -24,8 +24,9 @@ export const ButtonText = styled.button`
   text-align: center;
   padding: .4rem;
   background-color: ${colors.background};
+  font-weight: bold;
   &:hover {
-    font-weight: bold;
+    color: ${colors.primary};
   }
 }
 `

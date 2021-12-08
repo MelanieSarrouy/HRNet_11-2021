@@ -5,9 +5,10 @@ import logo from '../../assets/logo-vert.png'
 export const GlobalStyle = createGlobalStyle`
 /* Styles principaux */
 * {
-    font-family: 'Roboto', Helvetica, sans-serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
     color: ${colors.text};
     font-size: 16px;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     border: 0;

@@ -10,8 +10,9 @@ import { dynamicSortUp } from '../../../helpers/dynamicSortUp'
 import { employeesListSuccess } from '../../../Redux/actions/actionGetEmployees'
 // styles imports
 import {
-  IconButton,
+  IconButtonUp,
   IconsDiv,
+  IconButtonDown
 } from '../../../styles/components/tableWithSortingAndFilters/sorts'
 
 // JSX // _________________________________________________________________
@@ -43,16 +44,14 @@ const Sorts = (props) => {
 
   return (
     <IconsDiv id={props.id}>
-      <IconButton
+      <IconButtonUp
         id={`${props.id}-iconUp`}
-        className="fas fa-caret-up"
         onClick={handleClickUp}
-      ></IconButton>
-      <IconButton
+      ></IconButtonUp>
+      <IconButtonDown
         id={`${props.id}-iconDown`}
-        className="fas fa-caret-down"
         onClick={handleClickDown}
-      ></IconButton>
+      ></IconButtonDown>
     </IconsDiv>
   )
 }
