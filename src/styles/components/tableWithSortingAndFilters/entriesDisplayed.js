@@ -4,6 +4,6 @@ import colors from '../../bases/colors'
 
 export const Span = styled.span`
   font-weight: bold;
-  color: ${colors.text};
+  color: ${colors.secondary};
   font-size: 1.1rem;
 `
