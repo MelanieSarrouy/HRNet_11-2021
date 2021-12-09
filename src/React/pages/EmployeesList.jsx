@@ -7,6 +7,7 @@ import TableWithSortingSearchAndPagination from '../components/TableWithSortingS
 // datas imports
 import entriesQuantity from '../../datas/entriesQuantity'
 import keys from '../../datas/keys'
+import Loader from '../components/Loader'
 
 // JSX // _________________________________________________________________
 
@@ -17,18 +18,26 @@ import keys from '../../datas/keys'
  */
 
 const EmployeesList = () => {
-
   let data, entries, keysToDisplay
 
   data = useSelector((state) => state.getEmployees.employees)
   entries = entriesQuantity
   keysToDisplay = keys
 
+  const isLoading = useSelector((state) => state.getEmployees.isLoading)
 
   return (
     <>
       <h2 className="sr-only">Current employees</h2>
-      <TableWithSortingSearchAndPagination list={data} entriesNumber={entries} keysToDisplay={keysToDisplay} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <TableWithSortingSearchAndPagination
+          list={data}
+          entriesNumber={entries}
+          keysToDisplay={keysToDisplay}
+        />
+      )}
     </>
   )
 }
