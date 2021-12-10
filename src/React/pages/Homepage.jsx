@@ -198,7 +198,7 @@ const Homepage = () => {
         />
 
         <DivButton>
-          <InputButton type="submit" value="Save" />
+          <InputButton type="submit" value="Save" data-testid="save" />
         </DivButton>
       </Form>
 

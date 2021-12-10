@@ -4,6 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 // components imports
 import TableWithSortingSearchAndPagination from '../components/TableWithSortingSearchAndPagination/TableWithSortingSearchAndPagination'
+import Loader from '../components/Loader'
 // datas imports
 import entriesQuantity from '../../datas/entriesQuantity'
 import keys from '../../datas/keys'
@@ -24,11 +25,20 @@ const EmployeesList = () => {
   entries = entriesQuantity
   keysToDisplay = keys
 
+  const isLoading = useSelector((state) => state.getEmployees.isLoading)
 
   return (
     <>
       <h2 className="sr-only">Current employees</h2>
-      <TableWithSortingSearchAndPagination list={data} entriesNumber={entries} keysToDisplay={keysToDisplay} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <TableWithSortingSearchAndPagination
+          list={data}
+          entriesNumber={entries}
+          keysToDisplay={keysToDisplay}
+        />
+      )}
     </>
   )
 }

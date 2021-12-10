@@ -27,6 +27,7 @@ const Input = (props) => {
         {capitalizeFirstLetter(props.forAndId)}
       </InputLabel>
       <InputStyle
+        data-testid={props.forAndId}
         type={props.inputType}
         id={props.forAndId}
         value={props.value}

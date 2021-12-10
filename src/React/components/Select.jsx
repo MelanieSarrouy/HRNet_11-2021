@@ -26,6 +26,7 @@ const Select = (props) => {
       <SelectStyle
         name={props.forAndId}
         id={props.forAndId}
+        data-testid={props.forAndId}
         value={props.value}
         onChange={props.onChange}
       >
