@@ -5,7 +5,7 @@ import { useStore } from 'react-redux'
 import { useEffect } from 'react'
 // styles imports
 import { GlobalStyle } from '../styles/bases/globalStyle'
-import { Main } from '../styles/pages/homepage'
+import { Main } from '../styles/bases/main'
 // firebase imports
 import { getEmployees } from '../firebase/firebaseServices'
 // components imports

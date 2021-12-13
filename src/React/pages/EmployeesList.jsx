@@ -18,7 +18,6 @@ import keys from '../../datas/keys'
  */
 
 const EmployeesList = () => {
-
   let data, entries, keysToDisplay
 
   data = useSelector((state) => state.getEmployees.employees)
