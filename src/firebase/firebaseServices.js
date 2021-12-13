@@ -40,7 +40,7 @@ export const addAndGetEmployees = async (store, newEmployee) => {
   store.dispatch(employeesListLoading())
   try {
     const employeesCollectionRef = collection(db, 'employees')
-    await addDoc(employeesCollectionRef, newEmployee())
+    await addDoc(employeesCollectionRef, newEmployee)
     const data = await getDocs(employeesCollectionRef)
     const employees = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
     store.dispatch(employeesListSuccess(employees))

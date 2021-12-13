@@ -1,15 +1,7 @@
 import styled from 'styled-components'
 import colors from '../bases/colors'
 
-export const Main = styled.main`
-  padding: 1rem 1.5rem;
-  border-left: 1px inset ${colors.textLight};
-  border-right: 1px inset ${colors.textLight};
-  border-bottom: 1px inset ${colors.textLight};
-  border-radius: 0px 0px 5px 5px;
-  background-color: ${colors.background};
-`
-export const Form = styled.form`
+export const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
 `
@@ -87,7 +79,6 @@ export const InputButton = styled.input`
   @media (max-width: 575px) {
     width: 100%;
   }
-
 `
 export const Legend = styled.legend`
   padding: 1rem 1rem 1rem 0;
@@ -95,4 +86,8 @@ export const Legend = styled.legend`
   font-weight: 300;
   color: ${colors.text};
 `
-
+export const Error = styled.p`
+  color: red;
+  text-align: center;
+  padding: 1rem 1rem 0 1rem;
+`
