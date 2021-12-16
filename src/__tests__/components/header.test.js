@@ -3,7 +3,7 @@ import { render } from '../../helpers/render'
 import { screen } from '@testing-library/react'
 
 describe('Header', () => {
-  it('Should render header', async () => {
+  test('Should render header', async () => {
     render(<Header />)
     expect(screen.getByText('HRnet')).toBeTruthy()
   })

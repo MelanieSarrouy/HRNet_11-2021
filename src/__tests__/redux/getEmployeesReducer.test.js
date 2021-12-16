@@ -9,7 +9,7 @@ const initialStateGetEmployees = {
 }
 
 describe('Reducer', () => {
-  it('should return the initial state when state is undefined', async () => {
+  test('should return the initial state when state is undefined', async () => {
     expect(getEmployeesReducer(undefined, { type: '@INIT' })).toEqual({
       isLoading: false,
       employees: [],
@@ -17,7 +17,7 @@ describe('Reducer', () => {
       error: null,
     })
   })
-  it('should return state updatedwhen data loading', async () => {
+  test('should return state updatedwhen data loading', async () => {
     expect(
       getEmployeesReducer(
         initialStateGetEmployees,
@@ -30,7 +30,7 @@ describe('Reducer', () => {
       error: null,
     })
   })
-  it('should return state updated with fetched data', async () => {
+  test('should return state updated with fetched data', async () => {
     expect(
       getEmployeesReducer(
         initialStateGetEmployees,
@@ -43,7 +43,7 @@ describe('Reducer', () => {
       error: '',
     })
   })
-  it('should return state with an error if fetching data is rejected', async () => {
+  test('should return state with an error if fetching data is rejected', async () => {
     expect(
       getEmployeesReducer(initialStateGetEmployees, actions.employeesListError)
     ).toEqual({

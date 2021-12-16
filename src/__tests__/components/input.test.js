@@ -5,7 +5,7 @@ import { screen } from '@testing-library/react'
 const handleChange = jest.fn()
 
 describe('Input', () => {
-  it('Should render input', async () => {
+  test('Should render input', async () => {
     render(
       <Input
         direction={'row'}

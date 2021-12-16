@@ -9,8 +9,9 @@ const store = configureStore({
     getEmployees: getEmployeesReducer,
   },
 })
+
 describe('App', () => {
-  it('Should render without crashing', () => {
+  test('Should render without crashing', () => {
     render(
       <Provider store={store}>
         <App />
